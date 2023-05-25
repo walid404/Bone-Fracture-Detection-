@@ -13,7 +13,7 @@ class App:
         master.title("Bone Fracture Detection")
 
         # Create a frame to hold the buttons
-        button_frame = tk.Frame(master)
+        button_frame = tk.Frame(master, bg='black')
         button_frame.pack(side=tk.LEFT, padx=10)
 
         # Create a button to open an image file
@@ -37,10 +37,10 @@ class App:
         self.quit_button.pack(side=tk.TOP, pady=10)
 
         # Create two canvases to display the image
-        self.canvas1 = tk.Canvas(master, width=640, height=800)
+        self.canvas1 = tk.Canvas(master, width=640, height=800, bg='black')
         self.canvas1.pack(side=tk.LEFT)
 
-        self.canvas2 = tk.Canvas(master, width=640, height=800)
+        self.canvas2 = tk.Canvas(master, width=640, height=800, bg='black')
         self.canvas2.pack(side=tk.LEFT)
 
         # Initialize image objects to None
@@ -159,6 +159,8 @@ class App:
 # Create the Tkinter application
 root = tk.Tk()
 root.attributes('-fullscreen', True)
+root.configure(bg="black")
+
 app = App(root)
 
 # Run the Tkinter event loop
