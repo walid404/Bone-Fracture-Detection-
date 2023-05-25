@@ -119,9 +119,9 @@ class App:
 
         # Save the image to a new location
         new_file_path = filedialog.askdirectory()
-        print(new_file_path)
-        cv2.imwrite(os.path.join(new_file_path, 'predicted_' + self.image_name),
-                    self.predicted_image)
+        if new_file_path != '':
+            cv2.imwrite(os.path.join(new_file_path, 'predicted_' + self.image_name),
+                        self.predicted_image)
 
 
 
