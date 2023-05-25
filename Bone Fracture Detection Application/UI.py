@@ -17,23 +17,28 @@ class App:
         button_frame.pack(side=tk.LEFT, padx=10)
 
         # Create a button to open an image file
-        self.open_button = tk.Button(button_frame, text="Open Image", command=self.open_image, padx=10, pady=10)
+        self.open_button = tk.Button(button_frame, text="Open Image", height= 1, width=10,
+                                     command=self.open_image, padx=10, pady=10)
         self.open_button.pack(side=tk.TOP, pady=10)
 
         # Create a button to send the image to the model
-        self.predict_button = tk.Button(button_frame, text="Predict Image", command=self.predict_image, padx=10, pady=10)
+        self.predict_button = tk.Button(button_frame, text="Predict Image", height= 1, width=10,
+                                        command=self.predict_image, padx=10, pady=10)
         self.predict_button.pack(side=tk.TOP, pady=10)
 
         # Create a button to save the image
-        self.save_button = tk.Button(button_frame, text="Save Image", command=self.save_image, padx=10, pady=10)
+        self.save_button = tk.Button(button_frame, text="Save Image", height= 1, width=10,
+                                     command=self.save_image, padx=10, pady=10)
         self.save_button.pack(side=tk.TOP, pady=10)
 
         # Create a button to clear the image from the canvas
-        self.clear_button = tk.Button(button_frame, text="Clear Image", command=self.clear_image, padx=10, pady=10)
+        self.clear_button = tk.Button(button_frame, text="Clear Image", height= 1, width=10,
+                                      command=self.clear_image, padx=10, pady=10)
         self.clear_button.pack(side=tk.TOP, pady=10)
 
         # Create a button to quit the application
-        self.quit_button = tk.Button(button_frame, text="Quit", command=self.master.destroy, padx=10, pady=10)
+        self.quit_button = tk.Button(button_frame, text="Quit", height= 1, width=10,
+                                     command=self.master.destroy, padx=10, pady=10)
         self.quit_button.pack(side=tk.TOP, pady=10)
 
         # Create two canvases to display the image
@@ -136,7 +141,7 @@ class App:
    
     def roı_clahe_pre_process(self , img):
       if len(img.shape) == 3: #Check if image is rgb
-        img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) #convert rgb to gray scala for apply threshold
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) #convert rgb to gray scale
       
       clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8)) #determine clahe values
       img = clahe.apply(img) #apply clahe transform on image
